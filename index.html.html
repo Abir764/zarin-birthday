@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fff0f5" />
+  <title>Happy Birthday, Zarin!</title>
+  <style>
+    :root {
+      --pink: #ff78a8;
+      --deep-pink: #e94f89;
+      --purple: #8e75d8;
+      --ink: #49384f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: grid;
+      place-items: center;
+      padding: 24px 14px;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at 15% 15%, #fff 0 5%, transparent 28%),
+                  linear-gradient(145deg, #ffe4ef, #f2eaff 55%, #e2f5ff);
+    }
+    .sparkle { position: fixed; pointer-events: none; opacity: .7; animation: float 7s ease-in-out infinite; }
+    .s1 { top: 8%; left: 8%; font-size: 27px; }
+    .s2 { top: 15%; right: 9%; font-size: 23px; animation-delay: 1s; }
+    .s3 { bottom: 12%; left: 12%; font-size: 25px; animation-delay: 2s; }
+    .s4 { bottom: 9%; right: 10%; font-size: 30px; animation-delay: 1.5s; }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-15px) rotate(12deg); } }
+    .card {
+      width: min(100%, 520px);
+      text-align: center;
+      padding: 30px 22px 26px;
+      border: 2px solid rgba(255,255,255,.85);
+      border-radius: 30px;
+      background: rgba(255,255,255,.76);
+      box-shadow: 0 20px 60px rgba(146, 91, 145, .16);
+      backdrop-filter: blur(8px);
+    }
+    .eyebrow { color: var(--deep-pink); font-size: .78rem; letter-spacing: .19em; font-weight: 800; text-transform: uppercase; }
+    h1 { margin: 10px 0 8px; font-size: clamp(2rem, 8vw, 3rem); line-height: 1.08; color: #d94e8a; }
+    .intro { margin: 0 auto; max-width: 370px; line-height: 1.6; color: #79677d; }
+    .cake-stage { height: 255px; display: flex; align-items: end; justify-content: center; padding-bottom: 12px; position: relative; }
+    .cake { position: relative; width: 245px; height: 175px; }
+    .plate { position: absolute; width: 270px; height: 19px; border-radius: 50%; background: #d7c8f5; bottom: 0; left: 50%; transform: translateX(-50%); box-shadow: 0 7px 0 #c4b2ec; }
+    .base { position: absolute; bottom: 17px; left: 20px; width: 205px; height: 82px; border-radius: 13px 13px 23px 23px; background: linear-gradient(#ffb1ca, #ff8fb4); box-shadow: inset 0 -9px rgba(221,76,132,.13); }
+    .top { position: absolute; bottom: 91px; left: 20px; width: 205px; height: 39px; border-radius: 50%; background: #fff0f5; border: 3px solid #ff9fbe; }
+    .icing { position: absolute; bottom: 72px; left: 20px; width: 205px; height: 31px; }
+    .drip { position: absolute; top: 0; width: 25px; height: 29px; border-radius: 0 0 14px 14px; background: #fff0f5; }
+    .d1 { left: 20px; height: 24px; } .d2 { left: 67px; height: 31px; } .d3 { left: 119px; height: 23px; } .d4 { left: 165px; height: 30px; }
+    .sprinkle { position: absolute; width: 8px; height: 4px; border-radius: 5px; background: #a58be8; transform: rotate(25deg); z-index: 2; }
+    .p1 { left: 56px; bottom: 118px; } .p2 { left: 105px; bottom: 121px; background:#ffcc55; } .p3 { left: 158px; bottom: 116px; background:#77cfc0; } .p4 { left: 83px; bottom: 101px; background:#ff78a8; }
+    .candle { position: absolute; z-index: 4; bottom: 124px; width: 12px; height: 48px; border-radius: 5px 5px 2px 2px; background: repeating-linear-gradient(135deg, #fff 0 5px, #a58be8 5px 10px); }
+    .c1 { left: 75px; } .c2 { left: 116px; height: 58px; background: repeating-linear-gradient(135deg, #fff 0 5px, #ff78a8 5px 10px); } .c3 { left: 157px; }
+    .flame { position: absolute; width: 15px; height: 23px; left: 50%; top: -23px; transform: translateX(-50%); border-radius: 55% 55% 50% 50%; background: radial-gradient(ellipse at 50% 70%, #fff7a8 0 20%, #ffbd45 43%, #ff7a39 72%); box-shadow: 0 0 15px 5px rgba(255,174,63,.55); animation: flicker .55s infinite alternate; transform-origin: center bottom; }
+    @keyframes flicker { from { transform: translateX(-50%) rotate(-5deg) scale(.95); } to { transform: translateX(-50%) rotate(5deg) scale(1.08); } }
+    .extinguished .flame { display: none; }
+    .smoke { display: none; position: absolute; left: 50%; top: -27px; width: 10px; height: 25px; border-radius: 50%; border-right: 3px solid #b9afc5; transform: translateX(-50%); animation: smoke 1.1s ease-out forwards; }
+    .extinguished .smoke { display: block; }
+    @keyframes smoke { from { opacity: .8; transform: translate(-50%, 0) scale(1); } to { opacity: 0; transform: translate(-20%, -25px) scale(1.8); } }
+    button { border: 0; border-radius: 999px; padding: 14px 24px; background: linear-gradient(100deg, #ff76a7, #bd83df); color: white; font-size: 1rem; font-weight: 800; cursor: pointer; box-shadow: 0 8px 18px rgba(220,92,157,.25); transition: transform .2s, box-shadow .2s; }
+    button:hover { transform: translateY(-2px); box-shadow: 0 11px 22px rgba(220,92,157,.3); }
+    button:active { transform: scale(.98); }
+    button:focus-visible { outline: 3px solid #7257bc; outline-offset: 4px; }
+    .hint { font-size: .83rem; color: #98879d; margin: 12px 0 0; }
+    .wish { display: none; margin: 22px auto 0; padding: 18px 16px; border-radius: 20px; background: #fff2f7; border: 1px dashed #f39cbe; animation: appear .8s ease both; }
+    .wish.show { display: block; }
+    .wish h2 { margin: 0 0 8px; color: #d94e8a; font-size: 1.65rem; }
+    .wish p { margin: 0; line-height: 1.7; color: #725e79; }
+    .signature { margin-top: 12px !important; color: #d94e8a !important; font-weight: 800; }
+    @keyframes appear { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .confetti { position: fixed; top: -15px; width: 9px; height: 13px; pointer-events: none; animation: fall 3.2s linear forwards; z-index: 10; }
+    @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: .9; } }
+    .footer { margin-top: 22px; font-size: .75rem; color: #aa9aaf; }
+    @media (max-width: 390px) { .card { padding: 25px 14px 22px; } .cake-stage { transform: scale(.9); margin: -8px 0; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <div class="sparkle s1">✦</div><div class="sparkle s2">♡</div><div class="sparkle s3">✧</div><div class="sparkle s4">♡</div>
+  <main class="card">
+    <div class="eyebrow">A little birthday surprise</div>
+    <h1>Happy Birthday,<br>Zarin Tasnim! 🎀</h1>
+    <p class="intro">A special day deserves a little magic. Make a wish and blow out your candles!</p>
+
+    <div class="cake-stage" aria-label="A pink birthday cake with three lit candles">
+      <div class="cake" id="cake">
+        <div class="plate"></div>
+        <div class="base"></div>
+        <div class="top"></div>
+        <div class="icing"><i class="drip d1"></i><i class="drip d2"></i><i class="drip d3"></i><i class="drip d4"></i></div>
+        <i class="sprinkle p1"></i><i class="sprinkle p2"></i><i class="sprinkle p3"></i><i class="sprinkle p4"></i>
+        <div class="candle c1"><span class="flame"></span><span class="smoke"></span></div>
+        <div class="candle c2"><span class="flame"></span><span class="smoke"></span></div>
+        <div class="candle c3"><span class="flame"></span><span class="smoke"></span></div>
+      </div>
+    </div>
+
+    <button id="blowBtn" type="button">🌬️ Blow the Candles</button>
+    <p class="hint" id="hint">Tap the button to make a wish!</p>
+
+    <section class="wish" id="wish" aria-live="polite">
+      <h2>🎉 Make a wish, Zarin! 🎉</h2>
+      <p>Wishing you a day filled with happiness, laughter, beautiful memories, and lots of reasons to smile. May this new year of your life bring you wonderful surprises and everything good you deserve. Keep shining! 💖</p>
+      <p class="signature">Happy Birthday once again! 🌷</p>
+    </section>
+    <div class="footer">A little surprise, made with ♡ and code</div>
+  </main>
+  <script>
+    const blowBtn = document.getElementById('blowBtn');
+    const cake = document.getElementById('cake');
+    const wish = document.getElementById('wish');
+    const hint = document.getElementById('hint');
+
+    function celebrate() {
+      const symbols = ['🎉', '✨', '💗', '🌸'];
+      for (let i = 0; i < 65; i++) {
+        const piece = document.createElement('span');
+        piece.className = 'confetti';
+        piece.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.animationDelay = Math.random() * 1.2 + 's';
+        piece.style.fontSize = (12 + Math.random() * 12) + 'px';
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 4600);
+      }
+    }
+
+    blowBtn.addEventListener('click', () => {
+      if (!cake.classList.contains('extinguished')) {
+        cake.classList.add('extinguished');
+        wish.classList.add('show');
+        hint.textContent = 'Your wish is on its way! 💫';
+        blowBtn.textContent = '🎂 Light the Candles Again';
+        celebrate();
+      } else {
+        cake.classList.remove('extinguished');
+        wish.classList.remove('show');
+        hint.textContent = 'Tap the button to make a wish!';
+        blowBtn.textContent = '🌬️ Blow the Candles';
+      }
+    });
+  </script>
+</body>
+</html>
